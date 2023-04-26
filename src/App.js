@@ -14,10 +14,10 @@ class App extends Component {
   state = {
     score: 0,
     circles: [1, 2, 3, 4],
-    pace: 1500,
+    tempo: 1500,
     gameOn: false,
     gameOver: false,
-    current: undefined,
+    current: 0,
     startButtonActive: true,
     endButtonActive: false,
     rounds: 0,
@@ -28,7 +28,7 @@ class App extends Component {
     this.setState({ endButtonActive: !this.state.endButtonActive });
   };
 
-  clickHandler = (i) => {
+  shotHandler = (i) => {
     let clickSound = new Audio(click);
     clickSound.play();
 
@@ -51,15 +51,15 @@ class App extends Component {
     let nextActive;
 
     do {
-      nextActive = randomZombie(0, this.state.circles.length - 1);
+      nextActive = randomZombie(0, this.state.circles.length);
     } while (nextActive === this.state.current);
 
     this.setState({
       current: nextActive,
-      pace: this.state.pace * 0.95,
+      tempo: this.state.tempo * 0.95,
       rounds: this.state.rounds + 1,
     });
-    this.timer = setTimeout(this.nextCircle, this.state.pace);
+    this.timer = setTimeout(this.nextCircle, this.state.tempo);
   };
 
   startHandler = () => {
@@ -84,7 +84,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="game_wrapper">
+      <div className="gameContainer">
         <h1>Zombie Slayer</h1>
         <h3>
           Your score is : <span id="score">{this.state.score}</span>
@@ -95,16 +95,16 @@ class App extends Component {
               key={circle}
               id={circle + 1}
               gameOn={this.state.gameOn}
-              click={() => this.clickHandler(circle)}
+              shoot={() => this.shotHandler(circle)}
               active={this.state.current === circle}
             />
           ))}
         </div>
         {this.state.startButtonActive && (
-          <button onClick={this.startHandler}>Start Game</button>
+          <button onClick={this.startHandler}>Start</button>
         )}
         {this.state.endButtonActive && (
-          <button onClick={this.stopHandler}>End Game</button>
+          <button onClick={this.stopHandler}>End</button>
         )}
 
         {this.state.gameOver && (
