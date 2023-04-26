@@ -37,7 +37,7 @@ class App extends Component {
     }
 
     this.setState({
-      score: this.state.score + 100,
+      score: this.state.score + 1,
       rounds: 0,
     });
   };
@@ -87,7 +87,7 @@ class App extends Component {
       <div className="gameContainer">
         <h1>Zombie Slayer</h1>
         <h3>
-          Your score is : <span id="score">{this.state.score}</span>
+          Your kills : <span id="score">{this.state.score}</span>
         </h3>
         <div className="circles">
           {this.state.circles.map((circle) => (
