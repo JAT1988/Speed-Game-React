@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Eater&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Eater", cursive;
+}
+
+body {
+  background: url(../Assets/zombieBG.jpeg) no-repeat center center/cover;
+  height: 100vh;
+}
+
+h1 {
+  color: #0dff00;
+  text-shadow: 4px 4px 8px #ff0000;
+  text-align: center;
+  font-size: 5.5em;
+  padding: 15px;
+}
+
+h3 {
+  color: #0dff00;
+  text-shadow: 4px 4px 8px #ff0000;
+  font-size: 1.6em;
+}
+
+.game_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+button {
+  font-size: 1.3rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: alias;
+  color: #ff0000;
+  font-family: inherit;
+  text-align: center;
+  background-color: #0dff00;
+  cursor: pointer;
+}

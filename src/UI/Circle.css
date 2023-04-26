@@ -1,0 +1,17 @@
+.circles {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .zombieCircle {
+    color: rgb(230, 230, 230);
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    cursor: crosshair;
+  }
+  
+  .active {
+    background: url(../Assets/zombie3.jpeg) no-repeat center center/cover;
+  }
+  
